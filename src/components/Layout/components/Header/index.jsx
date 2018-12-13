@@ -8,7 +8,7 @@ const Header = () => (
   <AppBar position="static">
     <Toolbar>
       <Typography variant="h6" color="inherit">
-        Gatsby Webapp Starter
+        _
       </Typography>
     </Toolbar>
   </AppBar>
