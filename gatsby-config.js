@@ -28,6 +28,11 @@ const manifest = {
 };
 
 
+const materialUi = {
+  resolve: `@wapps/gatsby-plugin-material-ui`,
+};
+
+
 module.exports = {
   siteMetadata,
   plugins: [
@@ -36,5 +41,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     manifest,
+    materialUi,
   ],
 }
