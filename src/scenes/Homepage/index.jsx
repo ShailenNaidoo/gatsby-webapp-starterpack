@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
 
 import Layout from '../../components/Layout';
 
@@ -13,6 +14,16 @@ const Markup = ({ clickHandler, active }) => (
 );
 
 
+Markup.propTypes = {
+  clickHandler: PropTypes.func.isRequired,
+  active: PropTypes.bool,
+};
+
+Markup.defaultProps = {
+  active: false,
+};
+
+
 class Homepage extends Component {
   state = {
     active: false,
@@ -20,16 +31,15 @@ class Homepage extends Component {
 
   clickHandler = () => {
     const { active } = this.state;
-    this.setState({ active: !active })
+    this.setState({ active: !active });
   }
 
   render() {
     const { clickHandler } = this;
     const { active } = this.state;
-    return <Markup {...{ clickHandler, active }} />
+    return <Markup {...{ clickHandler, active }} />;
   }
 }
 
 
-
-export default Homepage
+export default Homepage;

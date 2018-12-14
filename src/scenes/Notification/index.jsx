@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Layout from '../../components/Layout';
 
@@ -10,4 +11,9 @@ const Notification = ({ message }) => (
 );
 
 
-export default Notification
+Notification.propTypes = {
+  message: PropTypes.string.isRequired,
+};
+
+
+export default Notification;
