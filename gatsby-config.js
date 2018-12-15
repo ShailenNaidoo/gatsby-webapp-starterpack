@@ -1,21 +1,32 @@
+const { config } = require('dotenv');
+
+
+const {
+  HOTJAR_ID,
+  GOOGLE_ANALYTICS_ID,
+  SENTRY_DNS,
+  HOTJAR_SNIPPET_VERSION,
+} = config();
+
+
 const siteMetadata = {
-    title: 'Gatsby Default Starter',
-    description: 'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-    author: '@gatsbyjs',
+  title: 'Gatsby Default Starter',
+  description: 'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
+  author: '@gatsbyjs',
 };
 
 
-const sourceFilesystem = {
-  resolve: `gatsby-source-filesystem`,
+const sourceFilesystemConfig = {
+  resolve: 'gatsby-source-filesystem',
   options: {
-    name: `images`,
+    name: 'images',
     path: `${__dirname}/src/images`,
   },
 };
 
 
-const manifest = {
-  resolve: `gatsby-plugin-manifest`,
+const manifestConfig = {
+  resolve: 'gatsby-plugin-manifest',
   options: {
     name: 'gatsby-starter-default',
     short_name: 'starter',
@@ -28,8 +39,57 @@ const manifest = {
 };
 
 
-const materialUi = {
-  resolve: `@wapps/gatsby-plugin-material-ui`,
+const materialUiConfig = {
+  resolve: '@wapps/gatsby-plugin-material-ui',
+};
+
+
+const createHotjarConfig = ({ id, sv }) => {
+  if (!id || !sv) {
+    return [];
+  }
+
+  return [
+    {
+      resolve: 'gatsby-plugin-hotjar',
+      options: {
+        id,
+        sv,
+      },
+    },
+  ];
+};
+
+
+const createAnalyticsConfig = (trackingId) => {
+  if (!trackingId) {
+    return [];
+  }
+
+  return [
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId,
+      },
+    },
+  ];
+};
+
+
+const createSentryConfig = (dsn) => {
+  if (!dsn) {
+    return [];
+  }
+
+  return [
+    {
+      resolve: 'gatsby-plugin-sentry',
+      options: {
+        dsn,
+      },
+    },
+  ];
 };
 
 
@@ -37,10 +97,13 @@ module.exports = {
   siteMetadata,
   plugins: [
     'gatsby-plugin-react-helmet',
-    sourceFilesystem,
+    sourceFilesystemConfig,
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    manifest,
-    materialUi,
+    manifestConfig,
+    materialUiConfig,
+    ...(createHotjarConfig({ id: HOTJAR_ID, sv: HOTJAR_SNIPPET_VERSION })),
+    ...(createAnalyticsConfig({ trackingId: GOOGLE_ANALYTICS_ID })),
+    ...(createSentryConfig({ dsn: SENTRY_DNS })),
   ],
-}
+};
