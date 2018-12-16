@@ -1,4 +1,12 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 const { config } = require('dotenv');
+const app = require('./app.json');
+
+
+const {
+  name: nameValue,
+  color: colorValue,
+} = app;
 
 
 const {
@@ -9,33 +17,32 @@ const {
 } = config();
 
 
-const siteMetadata = {
-  title: 'Gatsby Default Starter',
-  description: 'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-  author: '@gatsbyjs',
-};
+const isHexColor = value => /^#[0-9a-fA-F]{6}/.test(value);
 
 
-const sourceFilesystemConfig = {
-  resolve: 'gatsby-source-filesystem',
-  options: {
-    name: 'images',
-    path: `${__dirname}/src/images`,
-  },
-};
+const buildManifestConfig = ({ name, color }) => {
+  if (!name || !color) {
+    return [];
+  }
 
+  if (!isHexColor(color)) {
+    throw new Error('PRODUCT_HEX_COLOR is not a hex color');
+  }
 
-const manifestConfig = {
-  resolve: 'gatsby-plugin-manifest',
-  options: {
-    name: 'gatsby-starter-default',
-    short_name: 'starter',
-    start_url: '/',
-    background_color: '#663399',
-    theme_color: '#663399',
-    display: 'minimal-ui',
-    icon: 'src/images/gatsby-icon.png',
-  },
+  return [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name,
+        icon: 'src/assets/meta/icon.png',
+        short_name: name,
+        start_url: '/',
+        background_color: color,
+        theme_color: color,
+        display: 'minimal-ui',
+      },
+    },
+  ];
 };
 
 
@@ -94,16 +101,13 @@ const createSentryConfig = (dsn) => {
 
 
 module.exports = {
-  siteMetadata,
   plugins: [
-    'gatsby-plugin-react-helmet',
-    sourceFilesystemConfig,
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    manifestConfig,
     materialUiConfig,
+    ...(buildManifestConfig({ name: nameValue, color: colorValue })),
     ...(createHotjarConfig({ id: HOTJAR_ID, sv: HOTJAR_SNIPPET_VERSION })),
     ...(createAnalyticsConfig({ trackingId: GOOGLE_ANALYTICS_ID })),
     ...(createSentryConfig({ dsn: SENTRY_DNS })),
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-offline',
   ],
 };
