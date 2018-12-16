@@ -1,97 +1,162 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# Gatsby Webapp Starter
+![stability-wip](https://img.shields.io/badge/stability-work_in_progress-lightgrey.svg)
 
-Kick off your project with this default boilerplate ([live demo](https://gatsby-starter-default-demo.netlify.com/)). This barebones starter ships with the main Gatsby configuration files you might need. 
+Open-source Gatsby starter used internally at [OpenUp](#) for webapp projects.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## 📚 Table of Contents
 
-## 🚀 Quick start
+- [Architecture Summary](#architecture-summary)
+- [Getting Started](#getting-started)
+  - [Start new project](#new-project)
+  - [Contribute to existing project](#existing)
+- [Technologies](#technologies)
+- [Integrations](#integrations)
+- [Feature checklist](#feature-checklist)
 
-1.  **Create a Gatsby site.**
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
 
-    ```sh
-    # create a new Gatsby site using the default starter
-    npx gatsby new my-default-starter
-    ```
+## <span id="architecture-summary"></span>⭐️ Architecture Summary:
 
-1.  **Start developing.**
+Built with the following [technologies](#technologies):
+- Markup and interactivity: 
+  - [Gatsby](#gatsby)
+  - [Redux](#redux)
+- Styling:
+  - [Material UI](#material-ui)
+- Testing: 
+  - [Cypress](#cypress)
+  - [Jest](#jest)
+  - [Enzyme](#enzyme)
+  - [ESLint](#eslint)
+  - [Husky](#husky)
 
-    Navigate into your new site’s directory and start it up.
+Assumes the following [integrations](#):
+- Deployment:
+  - [Github](#github) 
+  - [Netlify](#netlify)
+- Testing:
+  - [Travis](#travis)
+- Reporting:
+  - [Google Analytics](#google-analytics)
+  - [Sentry](#sentry)
+  - [Hotjar](#hotjar)
 
-    ```sh
-    cd my-default-starter/
-    gatsby develop
-    ```
+## <span id="getting-started"></span>🚀 Getting Started
 
-1.  **Open the source code and start editing!**
+### <span id="new-project"></span>Start New Project
 
-    Your site is now running at `http://localhost:8000`!
-    
-    *Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
-    
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
-    
-## 🧐 What's inside?
+1. Clone this starter repo by running `git clone https://github.com/schalkventer/gatsby-webapp-starter`.
+2. Configure `app.json` file with required information
+3. Replace `src/assets/meta/icon.png` with custom `.png` image to use for favicon and to launch app.
+4. 
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    ├── README.md
-    └── yarn.lock
+### <span id="existing"></span>Existing Project
 
-  1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.  
-  
-  2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-  
-  3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-  
-  4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-  
-  5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-  
-  6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
-  
-  7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-  
-  8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-  
-  9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
-  
-  10.  **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-  
-  11.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-  
-  12.  **`README.md`**: A text file containing useful reference information about your project.
-  
-  13.  **`yarn.lock`**: [Yarn](https://yarnpkg.com/) is a package manager alternative to npm. You can use either yarn or npm, though all of the Gatsby docs reference npm.  This file serves essentially the same purpose as `package-lock.json`, just for a different package management system.
+#### Local development
+1. [Clone](https://help.github.com/articles/cloning-a-repository/) this repository from Github.
+2. Make sure you have the latest [NodeJS](https://nodejs.org/en/) installed.
+3. Run `npm install` in the root folder of the repository.
+4. Run `npm start` to spin up the development server.*
+5. Open `localhost:8000` in your browser.
 
-## 🎓 Learning Gatsby
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+#### Pushing Code
+1. If you have write access to the repo use the [feature branch Git workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow), if you do not then use the [forking Git workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow)
+2. Run `npm test` to ensure that all tests pass before running `git push`. [<sup>*</sup>](#footnote-1)
+3. Make a [pull request](https://www.atlassian.com/git/tutorials/making-a-pull-request) on [Github](#github) to the `master` branch.
+4. The owner of the repository will automatically be tagged in pull requests via the `docs/CODEOWNERS` file.
+5. If your code has been reviewed and merged  into `master` then [Netlify](#netlify) will automatically deploy the changes to the production environment.
 
--   **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+<span id="footnote-1"><sup>*</sup></span> Husky prevents pushing to git unless `npm test` passes. In emergencies [Husky](https://www.npmjs.com/package/husky) can be bypassed by running `git push --no-verify` or `npm run deploy:no-verify`.
 
--   **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
-## 💫 Deploy
+## 🔧 Tech stack
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+....
+
+### Markup and interactivity
+
+...
+
+#### Gatsby
+...
+
+The base [Gatsby](https://www.gatsbyjs.org/) configuration is extended as follows:
+
+|Name|Purpose|
+|---|---|
+|[gatsby-plugin-material-ui](@wapps/gatsby-plugin-material-ui)| Adds Material UI styling during static page generation. This means that Gatsby static HTML files have Material UI even before JSS loads client-side.|
+|[gatsby-plugin-manifest](https://www.npmjs.com/package/gatsby-plugin-manifest)|Creates [web app manifest file](https://developer.mozilla.org/en-US/docs/Web/Manifest) based on the following values in the `.ENV` file: `PRODUCT_NAME`, `PRODUCT_HEX_COLOR`, `PRODUCT_PNG_ICON_PATH`|
+|[gatsby-plugin-offline](https://www.npmjs.com/package/gatsby-plugin-offline)|x|
+|[gatsby-plugin-react-helmet](https://www.npmjs.com/package/gatsby-plugin-react-helmet)|x|
+|[gatsby-plugin-google-analytics](https://www.npmjs.com/package/gatsby-plugin-google-analytics)|x|
+|[gatsby-plugin-hotjar](https://www.npmjs.com/package/gatsby-plugin-hotjar)|x|
+|[gatsby-plugin-sentry](https://github.com/octalmage/gatsby-plugin-sentry)|x|
+
+
+#### Redux
+
+...
+
+[Redux](https://redux.js.org/) is integrated into Gatsby as per [Gatsby Starter Redux](https://github.com/caki0915/gatsby-starter-redux). This is primary through modification of the `gatsby-ssr.js` file.
+
+Core Redux is extended in the following manner:
+
+|Name|Purpose|
+|---|---|
+|[react-redux](https://www.npmjs.com/package/react-redux)|x|
+|[redux-devtools-extension](https://www.npmjs.com/package/redux-devtools-extension)|x|
+|[redux-thunk](https://www.npmjs.com/package/redux-thunk)|x|
+
+The following conventions are used in all Redux files:
+
+- All Redux files corresponds to [Ducks](https://github.com/erikras/ducks-modular-redux) convention.
+- All Redux actions correspond to [Flux Standard Action](https://github.com/redux-utilities/flux-standard-action) convention.
+
+### Markup and interactivity
+
+...
+
+#### Material UI
+
+...
+
+[Material UI](https://material-ui.com/) is integrated into Gatsby by means of [gatsby-plugin-material-ui](@wapps/gatsby-plugin-material-ui).
+
+The following Material UI modules are used:
+|Name|Purpose|
+|---|---|
+|[@material-ui/core](https://www.npmjs.com/package/@material-ui/core)|x|
+|[@material-ui/icons](https://www.npmjs.com/package/@material-ui/icons)|x|
+|[@material-ui/lab](https://www.npmjs.com/package/@material-ui/lab)|x|
+
+The following conventions are used when overriding any Material UI styling:
+
+- All custom CSS to be done via [JSS](https://cssinjs.org/) as [outline in the Material UI docs](https://material-ui.com/customization/overrides/).
+
+
+### Testing
+Linting is done through [ESLint](https://eslint.org/) (JavaScript) and enforced by [Husky](https://material-ui.com/)
+
+**Core ESLint rules are extended as follows**:
+  - [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
+  - [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)
+  - [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import)
+  - [eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+  - [babel-eslint](https://www.npmjs.com/package/babel-eslint)
+
+
+## Analytics and Error Reporting
+
+
+
+## Browser Support
+- Browser support defined via [Browserslist](http://browserl.ist/) conventions in `package.json`.
+- Browser support currently correspond with the following Browserslist rules:
+  - `last 12 chrome versions`
+  - `last 12 firefox versions`
+  - `last 6 safari versions`
+  - `explorer >= 10`
+  - `edge > 0`
+- Browserslist integration with Gatsby and linting via [Browserslist package](https://www.npmjs.com/package/browserslist).
