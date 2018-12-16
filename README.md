@@ -13,11 +13,9 @@ Open-source Gatsby starter used internally at [OpenUp](#) for webapp projects.
 - [Integrations](#integrations)
 - [Feature checklist](#feature-checklist)
 
-
-
 ## <span id="architecture-summary"></span>⭐️ Architecture Summary:
 
-Built with the following [technologies](#technologies):
+#### Built with the following [technologies](#technologies):
 - Markup and interactivity: 
   - [Gatsby](#gatsby)
   - [Redux](#redux)
@@ -30,7 +28,7 @@ Built with the following [technologies](#technologies):
   - [ESLint](#eslint)
   - [Husky](#husky)
 
-Assumes the following [integrations](#):
+#### Assumes the following [integrations](#):
 - Deployment:
   - [Github](#github) 
   - [Netlify](#netlify)
@@ -49,7 +47,6 @@ Assumes the following [integrations](#):
 2. Configure `app.json` file with required information
 3. Replace `src/assets/meta/icon.png` with custom `.png` image to use for favicon and to launch app.
 4. 
-
 
 ### <span id="existing"></span>Existing Project
 
