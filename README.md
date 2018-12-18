@@ -4,7 +4,7 @@
 
 Open-source [Gatsby](https://www.gatsbyjs.org/) starter used internally at [OpenUp](#) for interactive webapp projects.
 
-## 📚 Table of Contents
+## 📚 Table of Contents [*](#note-0)
 
 - [Goals](#goals)
 - [Getting Started](#getting-started)
@@ -12,6 +12,8 @@ Open-source [Gatsby](https://www.gatsbyjs.org/) starter used internally at [Open
 - [Technologies](#technologies)
 - [Integrations](#integrations)
 - [Feature branch checklist](#feature-checklist)
+
+<span id="note-0"></span>\* Note that this `README.md` file only covers the technologies, integrations and workflow associated with this starter. If you want to learn more about how files/folders are structured inside `src/` you need to clone this repository and then run `npm install & npm run docs` in the root of the project.
 
 ## <span id="goals"></span>⭐️ Goals
 
