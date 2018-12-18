@@ -11,7 +11,7 @@ Open-source [Gatsby](https://www.gatsbyjs.org/) starter used internally at [Open
 - [Architecture Summary](#architecture-summary)
 - [Technologies](#technologies)
 - [Integrations](#integrations)
-- [Feature branch checklist](#feature-checklist)
+- [Branch Deploy Checklist](#deploy-checklist)
 
 <span id="note-0"></span>\* Note that this `README.md` file only covers the technologies, integrations and workflow associated with this starter. If you want to learn more about how components, files and folders are structured inside visit the please visit the [project's documentation](http://gatsby-webapp-starterpack-docs.netlify.com). 
 
@@ -267,3 +267,6 @@ The core [ESLint](https://eslint.org/) module is extended as follows:
 
 
  Sentry is used to track production errors in your project. It is great free alternative to enteprise tools like [New Relic](https://newrelic.com/).
+
+
+## <span id="deploy-checklist"></span>✔️ Branch Deploy Checklist
