@@ -15,11 +15,9 @@ Open-source [Gatsby](https://www.gatsbyjs.org/) starter used internally at [Open
 
 ## <span id="goals"></span>⭐️ Goals
 
-This starter is meant to establish a standardised and documented foundation for OpenUp upon which to build interactive-heavy webapp projects. [*](#note-1)
+**This starter is meant to establish a standardised and documented foundation for OpenUp upon which to build interactive-heavy webapp projects. The creation (and all further iterations) of this starter are driven by the following broad goals:** [*](#note-1)
 
-The establishment (and all further iterations) of this foundation are driven by the following broad goals:
-
-#### 1. Self-driven Onboarding
+### 1. Self-driven Onboarding
 
 After reading the `README.md` file, contributors should be able to jump straight into projects without guidance/instruction from the existing project team.
 
@@ -27,13 +25,13 @@ It is essential that the technologies and conventions used in this starter be po
 
 In addition, the starter should also include tooling that makes it easy to document components and services with minimal effort while developing.
 
-#### 2. Comprehensive
+### 2. Comprehensive
 
 This starter should be infinitely scaleable and usable in a wide range of projects without the introduction of additional technologies and/or modification to the existing stack.
 
 Therefore, any overrides or tweaks to the current system should be considered as a code smells.
 
-#### 3. Accessible
+### 3. Accessible
 
 Although specifically built for front-end developers, non-FEDs should be able to make basic changes to existing projects and/or bootstrap simple projects themselves.
 
@@ -41,7 +39,7 @@ This means that no enviroment-specific hacks or additional steps should be requi
 
 The starter should (to this end) be continually and extensively tested in different environments.
 
-#### 4. Exploratory
+### 4. Encourages Iteration
 
 ...
 
@@ -49,7 +47,7 @@ The starter should (to this end) be continually and extensively tested in differ
 
 ## <span id="getting-started"></span>🚀 Getting Started
 
-#### 1. Create Project
+### 1. Create Project
 
 - Clone this starter repo by running `git clone https://github.com/openupsa/gatsby-webapp-starter`.
 - Replace `src/assets/meta/icon.png` with custom `.png` image to use for favicon and app logo.
@@ -59,7 +57,7 @@ The starter should (to this end) be continually and extensively tested in differ
 
 <span id="note-2">*</span> Note that when the app is launched the logo will be overlayed over a background of `color`. It is a good idea to have a bit of contrast between `color` and the colors used in `icon.png`.
 
-#### 2. Deploy Code
+### 2. Deploy Code
 
 - Create [Netlify](https://www.netlify.com/) account and link to Github (only give permissions to the repository, not the entire account).
 - If site is being automatically deployed you can cancel it (we need to do some configuration first).
@@ -68,7 +66,7 @@ The starter should (to this end) be continually and extensively tested in differ
 - Once repository is deployed to Netlify, you can configure a custom domain. (This will look something like `https://mydomain.netlify.com`).
 - Go to custom domain in your browser to confirm that it deployed correctly.
 
-#### 3. Add Integrations
+### 3. Add Integrations
 
 - Create [Travis](https://travis-ci.org/) account and link to Github (only give permissions to the repository, not the entire account).
 - Create a `CYPRESS_INSTALL_BINARY` [enviroment variable](https://docs.travis-ci.com/user/environment-variables/) and set it to `0`. The binary is very helpful in local development, but takes a while to install and not needed in on Netlify.
@@ -82,7 +80,7 @@ The starter should (to this end) be continually and extensively tested in differ
   - `GOOGLE_ANALYTICS_ID`: Value can be obtained from https://analytics.google.com. This is the ID assigned to the property used for the project. The value usually starts with `UA-` and contains a series of numbers. For example: `UA-123456789-0` 
   - `SENTRY_DNS`: Value can be obtained from https://sentry.io. The value is stored under _Client Keys (DNS)_ and takes the form of a URL. For example: `https://123@sentry.io/456`
 
-#### 4. Update `README.md`
+### 4. Update `README.md`
 
 - Change title and first introductory sentence.
 - Un-comment and configure shields at the top:
@@ -95,7 +93,7 @@ The starter should (to this end) be continually and extensively tested in differ
 
 <!--
 
-#### 1. Local Development
+### 1. Local Development
 1. [Clone](https://help.github.com/articles/cloning-a-repository/) this repository from Github.
 2. Make sure you have the latest [NodeJS](https://nodejs.org/en/) installed.
 3. Run `npm install` in the root folder of the repository.
@@ -105,7 +103,7 @@ The starter should (to this end) be continually and extensively tested in differ
 <span id="note-3">*</span> Run `npm run docs` in order to initialise documentation based of all `.md` and `.mdx` files in `/src`. Once intialised, you can view all documentation for this project at http://localhost:3000.
 
 
-#### 2. Deploying Code
+### 2. Deploying Code
 1. If you have write access to the repo use the [feature branch Git workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow), if you do not then use the [forking Git workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow)
 2. Run `npm test` to ensure that all tests pass before running `git push`. [<sup>*</sup>](#footnote-1)
 3. Make a [pull request](https://www.atlassian.com/git/tutorials/making-a-pull-request) via the [Github](#github) dashboard to the `master` branch.
