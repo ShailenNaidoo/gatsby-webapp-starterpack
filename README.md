@@ -25,13 +25,13 @@ After reading the `README.md` file and running `npm run docs` in the project, co
 
 It is essential that the technologies and conventions used in this starter be popular/well-used and extensively documented online. 
 
-In addition, the starter should also include tooling that makes it easy to document components and services with minimal effort while developing.
+In addition, the starter should also include tooling that makes it easy to document code with minimal effort while developing.
 
 ### 2. Comprehensive
 
 This starter should be infinitely scaleable and usable in a wide range of projects without the introduction of additional technologies and/or modification to the existing stack.
 
-Therefore, any overrides or tweaks to the current system should be considered as a code smells.
+Therefore, any overrides or tweaks to the current system on a per-project basis should be considered as a code smells.
 
 ### 3. Accessible
 
@@ -39,11 +39,13 @@ Although specifically built for front-end developers, non-FEDs should be able to
 
 This means that no enviroment-specific hacks or additional steps should be required to get the starter (or projects built on the starter) running on different operating systems.
 
-The starter should (to this end) be continually and extensively tested in different environments.
+The starter should (to this end) be continually tested in different environments and by developers of different backgrounds/skill levels.
 
 ### 4. Encourages Iteration
 
-...
+Not only should the structure of this starter be configured in a manner that aids and encourages quick iteration cycles, but the starter itself should be buit/developed in a manner that allows iteration on the starter itself.
+
+All tooling and technology underpinning the starter should be siloed from one another and have minimal custom configuration. Adherence to this should allow the team to easily swap out/update existing technologies.
 
 <span id="note-1"></span>\* This starter has specifically been designed for internal use at Openup. However it is licensed under [MIT](https://opensource.org/licenses/MIT). If you are interested in using it in your own project let us know at schalk@openup.org.za
 
@@ -87,8 +89,17 @@ The starter should (to this end) be continually and extensively tested in differ
 
 ### 4. Configure Github
 
-- Go to the `settings` page for the project on https://github.com
-- 
+- Go to the `settings` page for the project on https://github.com.
+- Make sure that `wikis` and `projects` are unselected.
+- Add collaborators under the `collaborators & teams` page.
+- Go to the `branches` page and click `add rule`.
+  - Type `master` into the section that says `Apply rule to`.
+  - Select `Require pull request reviews before merging` and all sub-options under it.
+  - Select the `Include administrators` option.
+  - Click `Save changes`.
+- Make the following changes in the project itself:
+- Update link in `pull_request_template.md` to new project (and not starter repo).
+- Override gatekeeper in `docs/CODEOWNERS` if needed.
 
 ### 5. Update `README.md` and config files
 
@@ -101,8 +112,6 @@ The starter should (to this end) be continually and extensively tested in differ
   - If project has a designated Slack channel then add the name of the channel to the shield (if workspace is not OpenUp, then change link to relevant workspace URL).
 - Un-comment the new instructions below title _Local Development_ and _Pushing Code_.
 - Remove _Create Project_, _Deploy Code_, _Add intergrations_ and this _Update `README.md`_ sections from file.
-- Update link in `pull_request_template.md` to new project (and not starter repo).
-- Override gatekeeper in `docs/CODEOWNERS` if needed.
 
 <!--
 
@@ -130,21 +139,23 @@ The starter should (to this end) be continually and extensively tested in differ
 ## <span id="technologies"></span>🔧 Technologies
 
 This project is built on the following technologies:
-- Markup and interactivity: 
+- [Markup and interactivity](#markup): 
   - [Gatsby](#gatsby)
   - [Redux](#redux)
-- Styling:
+  - [Lodash](#lodash)
+  - [Axios](#axios)
+- [Styling](#styling):
   - [Material UI](#material-ui)
-- Testing: 
+- [Testing](#testing): 
   - [Cypress](#cypress)
   - [Jest](#jest)
   - [Enzyme](#enzyme)
   - [ESLint](#eslint)
   - [Husky](#husky)
-- Documentation
+- [Documentation](#documentation)
   - [Docz](#docz)
 
-### Markup and interactivity
+### <span id="markup"></span> Markup and interactivity
 
 This project is built on [JAMStack principles](https://jamstack.org/). In short, this means:
 
@@ -152,7 +163,9 @@ This project is built on [JAMStack principles](https://jamstack.org/). In short,
 >
 > \- https://jamstack.org/
 
-To this end this project heavily relies on [Gatsby](https://www.gatsbyjs.org/) and [Redux](https://redux.js.org/) to control markup and interactivity:
+To this end this project heavily relies on [Gatsby](https://www.gatsbyjs.org/) to generate prebuilt markup and [Redux](https://redux.js.org/) to manage interactivity.
+
+In addition [Axios](#) is included as way to standardise HTTP requests, while [Lodash](#) is included to standardise basic low-level data manipulation. For predicatability, these should always be used in favour of bespoke solutions (even if less performant).
 
 #### <span id="gatsby"></span>Gatsby
 
@@ -164,9 +177,9 @@ The base [Gatsby](https://www.gatsbyjs.org/) configuration is extended as follow
 |[gatsby-plugin-manifest](https://www.npmjs.com/package/gatsby-plugin-manifest)|Creates [web app manifest file](https://developer.mozilla.org/en-US/docs/Web/Manifest) based on the `name` and `color` values in the `app.json` file. The value of `name` is used for both the `name` and `short_name` values in the manifest. In addition, `color` is used for both `background_color` and `theme_color` in the manifest. |
 |[gatsby-plugin-offline](https://www.npmjs.com/package/gatsby-plugin-offline)|Creates and automatically updates the [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) file everytime `npm run build` runs. This ensure that content can be viewed offline.|
 |[gatsby-plugin-react-helmet](https://www.npmjs.com/package/gatsby-plugin-react-helmet)|Adds [react-helmet](https://www.npmjs.com/package/react-helmet) integration for static-generated Gatsby files. This means that `<helmet>` information is already present on the rendered page before JavaScript loads.|
+|[gatsby-plugin-hotjar](https://www.npmjs.com/package/gatsby-plugin-hotjar)| Automatically adds the required Hotjar script to each page. Learn more about this project's Hotjar integration at the [Hotjar section](#hotjar) in this `README.md` file. |
 |[gatsby-plugin-google-analytics](https://www.npmjs.com/package/gatsby-plugin-google-analytics)|Automatically inserts a Google Analytics initialisation script in each page. Apart from initialising GA (needed for custom events), it also automatically sends 'pageview' events to GA. Note that [react-ga](https://www.npmjs.com/package/react-ga) has also been included in this project for custom event tracking. To learn more you skip directly to the [Google Analytics](#google-analytics) section.
-|[gatsby-plugin-sentry](https://www.npmjs.com/package/gatsby-plugin-sentry)|x|
-|[gatsby-plugin-sentry](https://www.npmjs.com/package/gatsby-plugin-sentry)|Automatically adds the required Sentry script to each page. This means that `Sentry` is now available in the `window` global scope |
+|[gatsby-plugin-sentry](https://www.npmjs.com/package/gatsby-plugin-sentry)|Automatically adds the required Sentry script to each page. This means that `Sentry` is now available in the `window` global scope. This plugin only initialises Sentry in your project. You need to manually add Sentry events via the `Sentry` object. To learn more you skip directly to the [Sentry](#sentry) section. |
 
 #### <span id="redux"></span>Redux
 
