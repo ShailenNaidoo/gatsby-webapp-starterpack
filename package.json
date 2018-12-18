@@ -14,16 +14,16 @@
   "scripts": {
     "build:gatsby": "gatsby build",
     "build:docs": "docz build",
-    "build": "npm run build:gatsby & npm run build:docs & ncp .docz/ public/docs",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
+    "build:watch": "gatsby develop",
+    "build": "npm run build:watch",
     "test:cypress:config": "cypress open",
     "test:cypress:init": "cypress run",
     "test:cypress": "start-server-and-test start http://localhost:8000 test:cypress:init",
     "test:linting": "eslint src --ext .js,.jsx",
     "test:linting:fix": "eslint src --ext .js,.jsx --fix",
     "test": "npm run test:linting & npm run test:cypress",
-    "docs": "docz dev"
+    "start:docs": "docz dev",
+    "start": "npm run build:develop"
   },
   "devDependencies": {
     "@wapps/gatsby-plugin-material-ui": "^1.1.0",
