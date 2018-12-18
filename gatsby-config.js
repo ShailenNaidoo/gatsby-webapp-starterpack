@@ -6,6 +6,7 @@ const app = require('./app.json');
 const {
   name: nameValue,
   color: colorValue,
+  description: descriptionValue,
 } = app;
 
 
@@ -18,6 +19,19 @@ const {
 
 
 const isHexColor = value => /^#[0-9a-fA-F]{6}/.test(value);
+
+
+const buildSiteMetadata = ({ name, description, color }) => {
+  if (!name || !description || !color) {
+    return {};
+  }
+
+  return {
+    name,
+    description,
+    color,
+  };
+};
 
 
 const buildManifestConfig = ({ name, color }) => {
@@ -101,6 +115,11 @@ const createSentryConfig = (dsn) => {
 
 
 module.exports = {
+  siteMetadata: buildSiteMetadata({
+    name: nameValue,
+    description: descriptionValue,
+    color: colorValue,
+  }),
   plugins: [
     materialUiConfig,
     ...(buildManifestConfig({ name: nameValue, color: colorValue })),
