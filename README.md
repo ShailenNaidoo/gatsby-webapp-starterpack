@@ -1,6 +1,6 @@
 # Gatsby Webapp Starter
 
-<!-- ![](https://img.shields.io/badge/Gatsby_Webapp_Starter-0.0.1-lightgray.svg) ![](https://img.shields.io/badge/....svg) ![](https://img.shields.io/uptimerobot/ratio/....svg) ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) [![](https://img.shields.io/badge/slack%20channel-%23....svg)](https://openupsa.slack.com) -->
+<!-- [![](https://img.shields.io/badge/Gatsby_Webapp_Starterpack-0.0.1-lightgray.svg)](https://github.com/OpenUpSA/gatsby-webapp-starterpack) ![](https://img.shields.io/badge/....svg) ![](https://img.shields.io/uptimerobot/ratio/....svg) ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) [![](https://img.shields.io/badge/slack%20channel-%23....svg)](https://openupsa.slack.com) -->
 
 Open-source [Gatsby](https://www.gatsbyjs.org/) starter used internally at [OpenUp](#) for interactive webapp projects.
 
@@ -13,7 +13,7 @@ Open-source [Gatsby](https://www.gatsbyjs.org/) starter used internally at [Open
 - [Integrations](#integrations)
 - [Feature branch checklist](#feature-checklist)
 
-<span id="note-0"></span>\* Note that this `README.md` file only covers the technologies, integrations and workflow associated with this starter. If you want to learn more about how files/folders are structured inside `src/` you need to clone this repository and then run `npm install & npm run docs` in the root of the project.
+<span id="note-0"></span>\* Note that this `README.md` file only covers the technologies, integrations and workflow associated with this starter. If you want to learn more about how components, files and folders are structured inside visit the please visit the [project's documentation](http://gatsby-webapp-starterpack-docs.netlify.com). 
 
 ## <span id="goals"></span>⭐️ Goals
 
@@ -21,7 +21,7 @@ Open-source [Gatsby](https://www.gatsbyjs.org/) starter used internally at [Open
 
 ### 1. Self-driven Onboarding
 
-After reading the `README.md` file, contributors should be able to jump straight into projects without guidance/instruction from the existing project team.
+After reading the `README.md` file and running `npm run docs` in the project, contributors should be able to jump straight into projects without guidance/instruction from the existing project team.
 
 It is essential that the technologies and conventions used in this starter be popular/well-used and extensively documented online. 
 
@@ -61,12 +61,14 @@ The starter should (to this end) be continually and extensively tested in differ
 
 ### 2. Deploy Code
 
-- Create [Netlify](https://www.netlify.com/) account and link to Github (only give permissions to the repository, not the entire account).
-- If site is being automatically deployed you can cancel it (we need to do some configuration first).
-- Create a `CYPRESS_INSTALL_BINARY` [enviroment variable](https://www.netlify.com/docs/continuous-deployment/#build-environment-variables) and set it to `0`. The binary is very helpful in local development, but takes a while to install and not needed in on Netlify.
-- You can then manually trigger a re-deploy.
-- Once repository is deployed to Netlify, you can configure a custom domain. (This will look something like `https://mydomain.netlify.com`).
-- Go to custom domain in your browser to confirm that it deployed correctly.
+- Create [Netlify](https://www.netlify.com/) project and link to Github (only give permissions to the repository, not the entire account). (On the `3. Build options, and deploy!` step you can use the default entries).
+- The first deploy (that should still be running) takes a very long time. However, all subsequent deploys will be super-quick.
+- In the mean-time you should configure a custom domain. (This will look something like `https://mydomain.netlify.com`).
+- Then repeat all above steps agin (create a brand new project), with the following changes:
+  - On the `3. Build options, and deploy!` step replace `gatsby build` with `npm run build:docs` and `public` with `.docz/`.
+  - Affix `-docs` to custom domain name. For example `https://mydomain.netlify.com` will turn into `https://mydomain-docs.netlify.com`
+- Once both are deployed go to each domain in your browser to confirm that they deployed correctly.
+- In future both will deploy automatically if you make any changes/merge into the `master` branch on Github.
 
 ### 3. Add Integrations
 
@@ -86,6 +88,7 @@ The starter should (to this end) be continually and extensively tested in differ
 
 - Change title and first introductory sentence.
 - Un-comment and configure shields at the top:
+  - Update the URL to the `-docs` domain you just created on line 16.
   - Configure the _stability_ shield to one of the [7 pre-selected states](https://github.com/orangemug/stability-badges).
   - Create [Uptime Robot](https://uptimerobot.com/) monitor and add monitor API key as name of `.svg` file in the path.
   - If public contributions are allowed do not remove the _'PRs Welcome'_ shield.
