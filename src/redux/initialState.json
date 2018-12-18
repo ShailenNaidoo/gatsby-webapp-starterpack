@@ -1,0 +1,10 @@
+{
+  "user": {
+    "language": "English",
+    "age": null
+  },
+  "image": {
+    "loading": true,
+    "url": null
+  }
+}
