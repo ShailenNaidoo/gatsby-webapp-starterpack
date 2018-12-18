@@ -62,13 +62,12 @@ The starter should (to this end) be continually and extensively tested in differ
 ### 2. Deploy Code
 
 - Create [Netlify](https://www.netlify.com/) project and link to Github (only give permissions to the repository, not the entire account). (On the `3. Build options, and deploy!` step you can use the default entries).
-- The first deploy (that should still be running) takes a very long time. However, all subsequent deploys will be super-quick.
+- The first deploy (that should still be running) takes a very long time. It might even fail. Do not worry this is expected and will be fixed in the next section (_3. Add Integrations_).
 - In the mean-time you should configure a custom domain. (This will look something like `https://mydomain.netlify.com`).
 - Then repeat all above steps agin (create a brand new project), with the following changes:
   - On the `3. Build options, and deploy!` step replace `gatsby build` with `npm run build:docs` and `public` with `.docz/`.
-  - Affix `-docs` to custom domain name. For example `https://mydomain.netlify.com` will turn into `https://mydomain-docs.netlify.com`
-- Once both are deployed go to each domain in your browser to confirm that they deployed correctly.
-- In future both will deploy automatically if you make any changes/merge into the `master` branch on Github.
+  - Affix `-docs` to custom domain name. For example `https://mydomain.netlify.com` will turn into `https://mydomain-docs.netlify.com`.
+- Do not wait for deployment to finish, proceed to next step (and add integrations for both projects).
 
 ### 3. Add Integrations
 
@@ -83,6 +82,8 @@ The starter should (to this end) be continually and extensively tested in differ
   - `HOTJAR_SNIPPET_VERSION`: Value can be obtained from the snippet provided on https://hotjar.com. This is the value assigned to the `hjsv` property in the snippet. The value is the version of Hotjar that should be used (most recent is `6`).
   - `GOOGLE_ANALYTICS_ID`: Value can be obtained from https://analytics.google.com. This is the ID assigned to the property used for the project. The value usually starts with `UA-` and contains a series of numbers. For example: `UA-123456789-0` 
   - `SENTRY_DNS`: Value can be obtained from https://sentry.io. The value is stored under _Client Keys (DNS)_ and takes the form of a URL. For example: `https://123@sentry.io/456`
+  - Now that everything is set up go to both projects on https://netlify.com and manually trigger a redeploy (clear the cache if option is present).
+  - Once both are deployed go to each domain in your browser to confirm that they deployed correctly.
 
 ### 4. Update `README.md`
 
