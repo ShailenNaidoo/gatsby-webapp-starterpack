@@ -22,10 +22,10 @@ inquirer
   .then(({ checklist }) => {
     choices.forEach((item) => {
       if (!includes(checklist, item)) {
-        throw('Deployment aborted. you did not complete all pre-deploy checks!');
+        console.error('Deployment aborted. you did not complete all pre-deploy checks!');
+        process.exit(1);
       }
 
       return null;
     });
-  })
-  .catch(error => console.log(red(error)));
+  });

@@ -26,8 +26,8 @@
     "test:linting": "eslint src --ext .js,.jsx",
     "test:linting:fix": "eslint src --ext .js,.jsx --fix",
     "test:checklist": "node tooling/node/deployChecklist",
-    "test:prepush": "npm run test:checklist & npm run test",
-    "test": "npm run test:linting & npm run test:cypress",
+    "test:pre-push": "npm run test:checklist && npm run test",
+    "test": "npm run test:linting && npm run test:cypress",
     "start:docs": "docz dev",
     "start": "npm run build:watch"
   },
