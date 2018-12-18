@@ -220,6 +220,8 @@ The following conventions are used when overriding any Material UI styling:
 
 ...
 
+...
+
 The core [ESLint](https://eslint.org/) module is extended as follows:
 
 |Name|Purpose|
