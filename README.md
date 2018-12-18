@@ -93,7 +93,7 @@ The starter should (to this end) be continually and extensively tested in differ
 - Un-comment the new instructions below title _Local Development_ and _Pushing Code_.
 - Remove _Create Project_, _Deploy Code_, _Add intergrations_ and this _Update `README.md`_ sections from file.
 
-
+<!--
 
 #### 1. Local Development
 1. [Clone](https://help.github.com/articles/cloning-a-repository/) this repository from Github.
@@ -114,6 +114,7 @@ The starter should (to this end) be continually and extensively tested in differ
 
 <span id="footnote-1"><sup>*</sup></span> Husky prevents pushing to git unless `npm test` passes. In emergencies [Husky](https://www.npmjs.com/package/husky) can be bypassed by running `git push --no-verify` or `npm run deploy:no-verify`.
 
+-->
 
 ## <span id="technologies"></span>🔧 Technologies
 
