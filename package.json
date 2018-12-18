@@ -33,7 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "prepush": "npm run test:prepush"
+      "pre-push": "npm run test:prepush"
     }
   },
   "devDependencies": {
