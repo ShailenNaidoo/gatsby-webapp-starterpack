@@ -12,7 +12,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build:gatsby": "gatsby build",
+    "build:docs": "docz build",
+    "build": "npm run build:gatsby & npm run build:docs & ncp .docz/ public/docs",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "test:cypress:config": "cypress open",
@@ -21,7 +23,6 @@
     "test:linting": "eslint src --ext .js,.jsx",
     "test:linting:fix": "eslint src --ext .js,.jsx --fix",
     "test": "npm run test:linting & npm run test:cypress",
-    "docs:build": "docz build",
     "docs": "docz dev"
   },
   "devDependencies": {
@@ -45,6 +46,7 @@
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sentry": "^1.0.0",
     "gatsby-source-filesystem": "^2.0.12",
+    "ncp": "^2.0.0",
     "start-server-and-test": "^1.7.11"
   },
   "repository": {

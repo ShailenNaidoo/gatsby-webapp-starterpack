@@ -11,7 +11,7 @@ const themeConfig = {
 module.exports = {
   title: name,
   description,
-  src: './',
+  base: '/docs/',
   codeSandbox: false,
   files: '**/*.{md,mdx}',
   themeConfig,
