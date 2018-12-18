@@ -65,19 +65,19 @@ The starter should (to this end) be continually and extensively tested in differ
 - The first deploy (that should still be running) takes a very long time. It might even fail. Do not worry this is expected and will be fixed in the next section (_3. Add Integrations_).
 - In the mean-time you should configure a custom domain. (This will look something like `https://mydomain.netlify.com`).
 - Then repeat all above steps agin (create a brand new project), with the following changes:
-  - On the `3. Build options, and deploy!` step replace `gatsby build` with `npm run build:docs` and `public` with `.docz/`.
+  - On the `3. Build options, and deploy!` step replace `gatsby build` with `npm run build:docs` and `public` with `.docz/dist/`.
   - Affix `-docs` to custom domain name. For example `https://mydomain.netlify.com` will turn into `https://mydomain-docs.netlify.com`.
-- Do not wait for deployment to finish, proceed to next step (and add integrations for both projects).
+- Do not wait for deployment to finish, proceed to next step.
 
 ### 3. Add Integrations
 
 - Create [Travis](https://travis-ci.org/) account and link to Github (only give permissions to the repository, not the entire account).
-- Create a `CYPRESS_INSTALL_BINARY` [enviroment variable](https://docs.travis-ci.com/user/environment-variables/) and set it to `0`. The binary is very helpful in local development, but takes a while to install and not needed in on Netlify.
+- Create a `CYPRESS_INSTALL_BINARY` [enviroment variable](https://docs.travis-ci.com/user/environment-variables/) on Travis and set it to `0`. The binary is very helpful in local development, but takes a while to install and not needed in on Netlify. (This step shouldalso be done for both Netlify projects you just created).
 - Setup up and configure the following accounts:
   - [Google Analytics](https://analytics.google.com/analytics/web/)
   - [Sentry](https://sentry.io)
   - [Hotjar](https://www.hotjar.com/)
-- Add the following [enviroment variables](https://www.netlify.com/docs/continuous-deployment/#build-environment-variables) and values to Netlify.
+- Add the following [enviroment variables](https://www.netlify.com/docs/continuous-deployment/#build-environment-variables) and add the following values (not needed for newly created `-docs` project on Netlify).
   - `HOTJAR_ID`: Value can be obtained from the snippet provided on https://hotjar.com. This is the value assigned to the `hjid` property in the snippet. The value is the specific numeric ID assigned to the project. For example: `1234567`.
   - `HOTJAR_SNIPPET_VERSION`: Value can be obtained from the snippet provided on https://hotjar.com. This is the value assigned to the `hjsv` property in the snippet. The value is the version of Hotjar that should be used (most recent is `6`).
   - `GOOGLE_ANALYTICS_ID`: Value can be obtained from https://analytics.google.com. This is the ID assigned to the property used for the project. The value usually starts with `UA-` and contains a series of numbers. For example: `UA-123456789-0` 
@@ -139,28 +139,29 @@ This project is built on the following technologies:
 
 ### Markup and interactivity
 
-...
+This project is built on [JAMStack principles](https://jamstack.org/). In short, this means:
+
+> Modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.
+>
+> \- https://jamstack.org/
+
+To this end this project heavily relies on [Gatsby](https://www.gatsbyjs.org/) and [Redux](https://redux.js.org/) to control markup and interactivity:
 
 #### <span id="gatsby"></span>Gatsby
-...
 
 The base [Gatsby](https://www.gatsbyjs.org/) configuration is extended as follows:
 
 |Name|Purpose|
 |---|---|
-|[gatsby-plugin-material-ui](@wapps/gatsby-plugin-material-ui)| Adds Material UI styling during static page generation. This means that static generated Gatsby files have Material UI applied before JavaScript loads client-side. Otherwise, [JSS](https://cssinjs.org/) CSS-in-JSS would only kick in when JavaScript runs.|
+|[gatsby-plugin-material-ui](@wapps/gatsby-plugin-material-ui)| Adds Material UI styling during static page generation. This means that static-generated Gatsby files have Material UI applied before JavaScript loads client-side. Otherwise, [JSS](https://cssinjs.org/) CSS-in-JSS would only kick in when JavaScript runs.|
 |[gatsby-plugin-manifest](https://www.npmjs.com/package/gatsby-plugin-manifest)|Creates [web app manifest file](https://developer.mozilla.org/en-US/docs/Web/Manifest) based on the `name` and `color` values in the `app.json` file. The value of `name` is used for both the `name` and `short_name` values in the manifest. In addition, `color` is used for both `background_color` and `theme_color` in the manifest. |
-|[gatsby-plugin-offline](https://www.npmjs.com/package/gatsby-plugin-offline)|Creates and updates the [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) file used by Gatsby content generated content, allowing it to be viewed offline.|
-|[gatsby-plugin-react-helmet](https://www.npmjs.com/package/gatsby-plugin-react-helmet)|Adds [react-helmet](https://www.npmjs.com/package/react-helmet) integration for static generated Gatsby content. This means that meta information is already present on the rendered page before JavaScript loads.|
-|[gatsby-plugin-google-analytics](https://www.npmjs.com/package/gatsby-plugin-google-analytics)|Automatically inserts a Google Analytics initialisation script (at the end of the body) for each page. Apart from initialising GA (needed for custom events), it also automatically sends pageviews to GA. Note that [react-ga](https://www.npmjs.com/package/react-ga) has also been include in this project for custom event tracking. To learn more you skip directly to the [Google Analytics](#google-analytics) section.
-|[gatsby-plugin-hotjar](https://www.npmjs.com/package/gatsby-plugin-hotjar)|x|
+|[gatsby-plugin-offline](https://www.npmjs.com/package/gatsby-plugin-offline)|Creates and automatically updates the [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) file everytime `npm run build` runs. This ensure that content can be viewed offline.|
+|[gatsby-plugin-react-helmet](https://www.npmjs.com/package/gatsby-plugin-react-helmet)|Adds [react-helmet](https://www.npmjs.com/package/react-helmet) integration for static-generated Gatsby files. This means that `<helmet>` information is already present on the rendered page before JavaScript loads.|
+|[gatsby-plugin-google-analytics](https://www.npmjs.com/package/gatsby-plugin-google-analytics)|Automatically inserts a Google Analytics initialisation script in each page. Apart from initialising GA (needed for custom events), it also automatically sends 'pageview' events to GA. Note that [react-ga](https://www.npmjs.com/package/react-ga) has also been included in this project for custom event tracking. To learn more you skip directly to the [Google Analytics](#google-analytics) section.
 |[gatsby-plugin-sentry](https://www.npmjs.com/package/gatsby-plugin-sentry)|x|
-|[gatsby-plugin-mdx](https://www.npmjs.com/package/gatsby-plugin-sentry)|x|
-|[gatsby-source-filesystem](https://www.npmjs.com/package/gatsby-source-filesystem)|x|
+|[gatsby-plugin-sentry](https://www.npmjs.com/package/gatsby-plugin-sentry)|Automatically adds the required Sentry script to each page. This means that `Sentry` is now available in the `window` global scope |
 
 #### <span id="redux"></span>Redux
-
-...
 
 [Redux](https://redux.js.org/) is integrated into Gatsby as per [Gatsby Starter Redux](https://github.com/caki0915/gatsby-starter-redux). This is primary through modification of the `gatsby-ssr.js` file.
 
@@ -263,3 +264,6 @@ The core [ESLint](https://eslint.org/) module is extended as follows:
 ### Browser Support
 
 ...
+
+
+ Sentry is used to track production errors in your project. It is great free alternative to enteprise tools like [New Relic](https://newrelic.com/).
