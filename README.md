@@ -1,4 +1,4 @@
-# Gatsby Webapp Starter
+# 🎁 Gatsby Webapp Starterpack
 
 <!-- [![](https://img.shields.io/badge/Gatsby_Webapp_Starterpack-0.0.1-lightgray.svg)](https://github.com/OpenUpSA/gatsby-webapp-starterpack) ![](https://img.shields.io/badge/....svg) ![](https://img.shields.io/uptimerobot/ratio/....svg) ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) [![](https://img.shields.io/badge/slack%20channel-%23....svg)](https://openupsa.slack.com) -->
 
