@@ -85,7 +85,12 @@ The starter should (to this end) be continually and extensively tested in differ
   - Now that everything is set up go to both projects on https://netlify.com and manually trigger a redeploy (clear the cache if option is present).
   - Once both are deployed go to each domain in your browser to confirm that they deployed correctly.
 
-### 4. Update `README.md`
+### 4. Configure Github
+
+- Go to the `settings` page for the project on https://github.com
+- 
+
+### 5. Update `README.md` and config files
 
 - Change title and first introductory sentence.
 - Un-comment and configure shields at the top:
@@ -96,6 +101,8 @@ The starter should (to this end) be continually and extensively tested in differ
   - If project has a designated Slack channel then add the name of the channel to the shield (if workspace is not OpenUp, then change link to relevant workspace URL).
 - Un-comment the new instructions below title _Local Development_ and _Pushing Code_.
 - Remove _Create Project_, _Deploy Code_, _Add intergrations_ and this _Update `README.md`_ sections from file.
+- Update link in `pull_request_template.md` to new project (and not starter repo).
+- Override gatekeeper in `docs/CODEOWNERS` if needed.
 
 <!--
 
