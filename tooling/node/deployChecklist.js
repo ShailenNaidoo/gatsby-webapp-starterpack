@@ -20,12 +20,15 @@ inquirer
     },
   ])
   .then(({ checklist }) => {
-    choices.forEach((item) => {
-      if (!includes(checklist, item)) {
-        console.error(red('Deployment aborted. you did not complete all pre-deploy checks!'));
-        process.exit(1);
-      }
+    // choices.forEach((item) => {
+    //   if (!includes(checklist, item)) {
+    //     throw('Deployment aborted. you did not complete all pre-deploy checks!');
+    //   }
 
-      return null;
-    });
+    //   return null;
+    // });
+  })
+  .catch((error) => {
+    // console.log(red(error));
+    // process.exit(1);
   });
