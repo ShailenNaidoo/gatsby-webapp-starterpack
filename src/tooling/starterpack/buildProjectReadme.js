@@ -61,7 +61,7 @@ ${description}
 <span id="footnote-1"><sup>1</sup></span> Husky prevents pushing to git unless \`npm test\` passes. In emergencies [Husky](#husky) can be bypassed by running \`git push --no-verify\` or \`npm run deploy:no-verify\`.
 
 <span id="note-c"></span>
-<sup>2</sup> _In emergencies administrators can do forced merges by going into settings and disabling `Include administrators`. However, remember to select it again once the PR in question has been merged._
+<sup>2</sup> _In emergencies administrators can do forced merges by going into settings and disabling \`Include administrators\`. However, remember to select it again once the PR in question has been merged._
 
 ## <span id="technologies"></span>🔨 Technologies
 
