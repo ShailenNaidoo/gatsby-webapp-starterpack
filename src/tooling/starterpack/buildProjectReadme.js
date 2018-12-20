@@ -242,3 +242,4 @@ The core [ESLint](https://eslint.org/) module is extended as follows:
 
  Sentry is used to track production errors in your project. It is great free alternative to enteprise tools like [New Relic](https://newrelic.com/).
 `;
+};
