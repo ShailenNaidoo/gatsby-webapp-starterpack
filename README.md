@@ -47,7 +47,7 @@ Not only should the structure of this starter aid and encourage quick iteration 
 All [technology](#technologies) and [integrations](#integrations) underpinning the starter should be siloed from one another and have minimal custom configuration. Adherence to this should allow the team to easily swap out/update existing technologies.
 
 <span id="note-1"></span>
-\* _This starter has specifically been designed for internal use at Openup. However it is licensed under [MIT](https://opensource.org/licenses/MIT). If you are interested in using it in your own project let us know at schalk@openup.org.za_
+\* _This starter has specifically been designed for internal use at Openup. However it is licensed under [MIT](https://opensource.org/licenses/MIT). If you are interested in using it in your own project send an email to [schalk@openup.org.za](mailto:schalk@openup.org.za)._
 
 ## <span id="getting-started"></span>🚀 Getting Started
 
@@ -56,11 +56,15 @@ All [technology](#technologies) and [integrations](#integrations) underpinning t
 - Clone this starter repo by running `git clone https://github.com/openupsa/gatsby-webapp-starterpack`.
 - Run `npm install`.
 - Run `npm run starterpack` and follow instructions.
-- Replace `src/assets/meta/icon.png` with custom `.png` image to use for favicon and app logo.
-- Create a new Github repository with the same name as the `name` property in the `package.json` file and push your code.
+- Replace `src/assets/meta/icon.png` with a custom `.png` image to use as a favicon and desktop/mobile app icon.[<sup>1</sup>](#note-2)
+- Create a new Github repository with the same name as the `name` property in the `package.json` file.
+- Run `git remote add origin https://github.com/<ACCOUNT>/<REPOSITORY_NAME>.git && git push -u origin master`[<sup>2</sup>](#note-d)
 
 <span id="note-2"></span>
-\* _Note that when the app is launched the logo will be overlayed over a background of `color`. It is a good idea to have a bit of contrast between `color` and the colors used in `icon.png`._
+<sup>1</sup> _Note that when the app is launched the logo will be overlayed over a background of `color` passed during `npm run starterpack`. It is a good idea to have a bit of contrast between `color` and the colors used in `icon.png`. You can run `npm run starterpack:update` if you want to change the initial `color` value._
+
+<span id="note-d"></span>
+<sup>2</sup> _Remember to replace the `<ACCOUNT>` and `<REPOSITORY_NAME>` placeholders with your own details and not use the placeholders themselves!_
 
 ### 2. Deploy Code
 
@@ -99,8 +103,11 @@ All [technology](#technologies) and [integrations](#integrations) underpinning t
 - Go to the `branches` page and click `add rule`.
   - Type `master` into the section that says `Apply rule to`.
   - Select `Require pull request reviews before merging` and select all sub-options under it.
-  - Select the `Include administrators` option.
+  - Select the `Include administrators` option. [*](#note-c)
   - Click `Save changes`.
+
+<span id="note-c"></span>
+\* _In emergencies administrators can do forced merges by going into settings and disabling `Include administrators`. However, remember to select it again once the PR in question has been merged._
 
 ## <span id="technologies"></span>🔨 Technologies
 
@@ -219,6 +226,7 @@ At the time of writing [Material UI](https://material-ui.com/) is still consider
 [Material UI](https://material-ui.com/) is integrated into Gatsby by means of [gatsby-plugin-material-ui](@wapps/gatsby-plugin-material-ui).
 
 The following [Material UI](https://material-ui.com/) modules are used:
+
 |Name|Purpose|
 |---|---|
 |[@material-ui/core](https://www.npmjs.com/package/@material-ui/core)|This package includes all core Material Design components and services found at [https://material-ui.com](https://material-ui.com). These can be imported directly into the project as [React components](https://reactjs.org/docs/react-component.html). For example: `import Card from '@material/icons/Card'`. Visit [https://material-ui.com/getting-started/usage/](https://material-ui.com/getting-started/usage/) for more details.|

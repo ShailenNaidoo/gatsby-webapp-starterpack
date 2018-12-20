@@ -1,4 +1,4 @@
-const { name, description, color } = require('./app.json');
+const { name, description, color } = require('./src/tooling/starterpack/config.json');
 
 
 const themeConfig = {
