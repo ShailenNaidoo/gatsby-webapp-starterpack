@@ -38,7 +38,7 @@ Therefore, any overrides or tweaks to the current system on a per-project basis 
 
 Although specifically built for front-end developers, non-FEDs should be able to make basic changes to existing projects and/or [bootstrap simple projects](#get-started) themselves.
 
-This means that no enviroment-specific hacks or additional steps should be required to get the starter (or projects built on the starter) running on different operating systems. The starter should (to this end) be continually tested in different environments and by developers of different backgrounds/skill levels.
+This means that no environment-specific hacks or additional steps should be required to get the starter (or projects built on the starter) running on different operating systems. The starter should (to this end) be continually tested in different environments and by developers of different backgrounds/skill levels.
 
 ### 4. Encourages Iteration
 
@@ -215,7 +215,7 @@ In short:
 >
 > \- [Atomic Design (2016)](http://atomicdesign.bradfrost.com/chapter-4/)
 
-In the interest of speed, a third-party [React component-based](https://reactjs.org/docs/react-component.html) library called [Material UI](https://material-ui.com/) has been pre-selected to underpin all styling in this project. [Material UI](https://material-ui.com/) is an unofficially implementation of the [Material Design Spec](https://material.io/) (an extremely comprehensive and well-documented UI design system). 
+In the interest of speed, a third-party [React component-based](https://reactjs.org/docs/react-component.html) library called [Material UI](https://material-ui.com/) has been pre-selected to underpin all styling in this project. [Material UI](https://material-ui.com/) is an unofficial implementation of the [Material Design Spec](https://material.io/) (an extremely comprehensive and well-documented UI design system). 
 
 It is important to note that the team behind the [Material Design Spec](https://material.io/) have their own implementation of their principles via [Material Components Web for React](https://github.com/material-components/material-components-web-react) library. However, the unofficial [Material UI](https://material-ui.com/) implementation has been in development since 2017, while the [official Material Design](https://github.com/material-components/material-components-web-react) implementation only started development in 2018. 
 
@@ -365,4 +365,4 @@ The core [ESLint](https://eslint.org/) module is extended as follows:
 
 Thank you to the following non-OpenUp individuals for input, feedback and volunteering to test the starter:
 
-- [Shailen Naido](https://github.com/ShailenNaidoo)
+- [Shailen Naidoo](https://github.com/ShailenNaidoo)
