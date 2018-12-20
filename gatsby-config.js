@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { config } = require('dotenv');
-const app = require('./app.json');
+const app = require('./src/tooling/starterpack/config.json');
 
 
 const {
