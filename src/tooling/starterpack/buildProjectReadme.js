@@ -52,13 +52,16 @@ ${description}
 
 ### 2. Deploying Code
 1. If you have write access to the repo use the [feature branch Git workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow), if you do not then use the [forking Git workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow)
-2. Run \`npm test\` to ensure that all tests pass before running \`git push\`. [<sup>*</sup>](#footnote-1)
+2. Run \`npm test\` to ensure that all tests pass before running \`git push\`. [<sup>1</sup>](#footnote-1)
 3. Make a [pull request](https://www.atlassian.com/git/tutorials/making-a-pull-request) via the [Github](#github) dashboard to the \`master\` branch.
 4. Confirm that you have completed all tasks as outlined in the [deploy checklist](#deploy-checklist).
 5. The owner of the repository will automatically be tagged in pull requests via the \`docs/CODEOWNERS\` file.
-6. If your code has been reviewed and merged into \`master\` then [Netlify](#netlify) will automatically deploy the changes to [http://${projectId}.netlify.com](http://${projectId}.netlify.com).
+6. If your code has been reviewed and merged into \`master\` then [Netlify](#netlify) will automatically deploy the changes to [http://${projectId}.netlify.com](http://${projectId}.netlify.com).<sup>2</sup>
 
-<span id="footnote-1"><sup>*</sup></span> Husky prevents pushing to git unless \`npm test\` passes. In emergencies [Husky](#husky) can be bypassed by running \`git push --no-verify\` or \`npm run deploy:no-verify\`.
+<span id="footnote-1"><sup>1</sup></span> Husky prevents pushing to git unless \`npm test\` passes. In emergencies [Husky](#husky) can be bypassed by running \`git push --no-verify\` or \`npm run deploy:no-verify\`.
+
+<span id="note-c"></span>
+<sup>2</sup> _In emergencies administrators can do forced merges by going into settings and disabling `Include administrators`. However, remember to select it again once the PR in question has been merged._
 
 ## <span id="technologies"></span>🔨 Technologies
 
