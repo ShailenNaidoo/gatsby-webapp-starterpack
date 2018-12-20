@@ -17,6 +17,8 @@
   },
   "license": "MIT",
   "scripts": {
+    "starterpack": "tooling/node/buildProjectConfigAndReadme",
+    "starterpack:update": "tooling/node/updateProjectConfigAndReadme",
     "build:gatsby": "gatsby build",
     "build:docs": "docz build",
     "build:watch": "gatsby develop",
