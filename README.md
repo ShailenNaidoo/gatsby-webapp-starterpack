@@ -196,23 +196,7 @@ Have a look at the [Axios repository on Github](https://github.com/axios/axios
 
 #### <span id="lodash"></span>Lodash
 
-What lodash brings to the table is a more standardized api than one you'd roll on your own (all the methods have extended or overloaded arguments that work in a predictable fashion, it's well thought out) and are extremely well tested. Even if you're a JavaScript wiz, that saves you a lot of time and headache.
-
-Lodash is probably going to be more performant than your first try at writing these methods, as well as faster than some native methods. I don't think this is as big a deal in most cases: optimization is fine, but it's an added bonus on top of that real win: standardized, well tested utility toolkit that's well known and understood.
-
-
-
-Of course everything that can be done in lodash can be done in ES6+ (and even ES5) - after all lodash itself is coded in JS. But not everything can be done as easily or concisely.
-
-And the fact that lodash has treeshaking built in (meaning, you import only what you need) makes it still a feasible option.
-
-https://github.com/lodash/lodash/wiki/FP-Guide
-
-Lodash has been doing great for me and I will continue to drop it in all my Javascript project. It reduces the amount of boilerplate code and also improves the clarity of my application logic.
-
-But my biggest takeaway is this - Lodash forces me to think in a more functional manner. I break my application into many smaller modules with singular focus and no side effects. This increased modularity allows me to increase the application code coverage during unit testing.
-
-ES6 is the core system, and you should learn it as well as possible, but Lodash offers a big extra box of specialized tools you may or may not need for a particular project. If you’re finding yourself doing a lot of array/object manipulation, you want to consider adding Lodash.
+...
 
 ### <span id="styling"></span>Styling
 
