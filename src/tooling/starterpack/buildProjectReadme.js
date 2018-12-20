@@ -10,13 +10,13 @@ const createReadmeContent = (props) => {
     publicContributions,
   } = props;
 
-const starterpackVersionShield = '[![](https://img.shields.io/badge/Gatsby_Webapp_Starterpack-0.0.1-lightgray.svg)](https://github.com/OpenUpSA/gatsby-webapp-starterpack)';
-const stabilityStateShield = `![](https://img.shields.io/badge/${stabilityState}.svg)`;
-const uptimeRobotShield = `![](https://img.shields.io/uptimerobot/ratio/${uptimeRobotKey}.svg)`;
-const travisShield = `[![](${travisUrl}.svg?branch=master)];(https://travis-ci.com/OpenUpSA/gatsby-webapp-starterpack)`;
-const publicContributionsShield = publicContributions ? '[![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributions)' : '';
+  const starterpackVersionShield = '[![](https://img.shields.io/badge/Gatsby_Webapp_Starterpack-0.0.1-lightgray.svg)](https://github.com/OpenUpSA/gatsby-webapp-starterpack)';
+  const stabilityStateShield = `![](https://img.shields.io/badge/${stabilityState}.svg)`;
+  const uptimeRobotShield = `![](https://img.shields.io/uptimerobot/ratio/${uptimeRobotKey}.svg)`;
+  const travisShield = `[![](${travisUrl}.svg?branch=master)];(https://travis-ci.com/OpenUpSA/gatsby-webapp-starterpack)`;
+  const publicContributionsShield = publicContributions ? '[![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributions)' : '';
 
-return `
+  return `
 # ${name}
 
 ${starterpackVersionShield} ${stabilityStateShield} ${uptimeRobotShield} ${travisShield} ${publicContributionsShield}
