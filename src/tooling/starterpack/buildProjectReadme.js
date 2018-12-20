@@ -16,6 +16,8 @@ const createReadmeContent = (props) => {
   const travisShield = `[![](${travisUrl}.svg?branch=master)];(https://travis-ci.com/OpenUpSA/gatsby-webapp-starterpack)`;
   const publicContributionsShield = publicContributions ? '[![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributions)' : '';
 
+
+  /* eslint-disable no-useless-escape */
   return `
 # ${name}
 
@@ -40,7 +42,7 @@ ${description}
 ## <span id="getting-started"></span>🚀 Getting Started
 
 ### 1. Local Development
-1. [Clone](https://help.github.com/${ownerId}/${projcetId}/) this repository from Github.
+1. [Clone](https://help.github.com/${ownerId}/${projectId}/) this repository from Github.
 2. Make sure you have the latest [NodeJS](https://nodejs.org/en/) installed.
 3. Run \`npm install\` in the root folder of the repository.
 4. Run \`npm start\` to spin up the development server. [*](#note-3)
@@ -243,3 +245,6 @@ The core [ESLint](https://eslint.org/) module is extended as follows:
  Sentry is used to track production errors in your project. It is great free alternative to enteprise tools like [New Relic](https://newrelic.com/).
 `;
 };
+/* eslint-enable no-useless-escape */
+
+module.exports = createReadmeContent;
